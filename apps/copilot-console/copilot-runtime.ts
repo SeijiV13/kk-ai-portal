@@ -18,6 +18,10 @@ const agents = {
 const runtime = new CopilotRuntime({ agents });
 const port = Number(process.env['COPILOT_RUNTIME_PORT'] ?? 8200);
 const mastraApiBaseUrl = process.env['MASTRA_API_BASE_URL'] ?? 'http://localhost:4111/api';
+const allowedOrigins = [
+  'https://front-end-production-56ea.up.railway.app',
+  'http://localhost:4200',
+];
 const auth0Issuer = `https://${auth0Config.domain}/`;
 const jwks = createRemoteJWKSet(new URL(`${auth0Issuer}.well-known/jwks.json`));
 const permissions = {
@@ -29,7 +33,6 @@ const permissions = {
 
 function sendJson(response, status, payload) {
   response.writeHead(status, {
-    'access-control-allow-origin': '*',
     'access-control-allow-headers': 'authorization,content-type,x-auth0-token',
     'access-control-allow-methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     'content-type': 'application/json',
@@ -291,7 +294,6 @@ async function proxyMastraApi(request, response) {
   }
 
   response.writeHead(upstream.status, {
-    'access-control-allow-origin': '*',
     'access-control-allow-headers': 'authorization,content-type',
     'access-control-allow-methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     'content-type': upstream.headers.get('content-type') ?? 'application/json',
@@ -318,11 +320,21 @@ async function requireAuthHeader(request, response) {
 const copilotListener = createCopilotNodeListener({
   runtime,
   basePath: '/api/copilotkit',
-  cors: true,
+  cors: {
+    origin: allowedOrigins,
+    allowHeaders: ['authorization', 'content-type', 'x-auth0-token'],
+    allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  },
 });
 
 createServer(async (request, response) => {
   const pathname = new URL(request.url ?? '/', `http://localhost:${port}`).pathname;
+  const requestOrigin = request.headers.origin;
+
+  if (requestOrigin && allowedOrigins.includes(requestOrigin)) {
+    response.setHeader('access-control-allow-origin', requestOrigin);
+    response.setHeader('vary', 'Origin');
+  }
 
   if (request.method === 'OPTIONS') {
     sendJson(response, 204, {});
