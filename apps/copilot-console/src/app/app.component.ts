@@ -966,7 +966,7 @@ export class AppComponent {
   private readonly auth = inject(AuthService);
   private readonly copilotKit = inject(CopilotKit);
   private readonly chatSessionId = crypto.randomUUID();
-  private readonly mastraApiBaseUrl = 'http://localhost:8200/api/mastra';
+  private readonly mastraApiBaseUrl = 'https://be-runtime-production.up.railway.app/api/mastra';
   private readonly hiddenAgentIds = new Set(['knowledge-base-agent-input-processor']);
   private readonly hiddenWorkflowIds = new Set(['knowledge-base-agent-input-processor']);
   protected readonly skeletonCards = Array.from({ length: 3 });

@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
       httpInterceptor: {
         allowedList: [
           {
-            uri: 'http://localhost:8200/api/mastra/*',
+            uri: 'https://be-runtime-production.up.railway.app/api/mastra/*',
             tokenOptions: {
               authorizationParams: {
                 audience: auth0Config.audience,
@@ -37,7 +37,7 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     provideCopilotKit({
-      runtimeUrl: 'http://localhost:8200/api/copilotkit',
+      runtimeUrl: 'https://be-runtime-production.up.railway.app/api/copilotkit',
     }),
   ],
 };
