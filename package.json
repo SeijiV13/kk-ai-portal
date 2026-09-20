@@ -1,0 +1,44 @@
+{
+  "name": "product-management-control",
+  "version": "1.0.0",
+  "description": "A general-purpose Mastra agent with a local workspace, shell tools, memory, task tracking, web access, and recurring schedules.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "mastra dev",
+    "build": "mastra build",
+    "start": "mastra start",
+    "lint:preflight": "mastra lint --preflight",
+    "deploy": "mastra deploy --env production",
+    "deploy:staging": "mastra deploy --env staging",
+    "deploy:studio": "mastra studio deploy --project product-management-control --env-file .env.production",
+    "deploy:ci": "mastra deploy --env production --yes",
+    "studio:deploy": "mastra studio deploy --project product-management-control",
+    "copilot-runtime": "cd apps/copilot-console && npm run copilot-runtime",
+    "console:dev": "cd apps/copilot-console && npm run dev",
+    "console:build": "cd apps/copilot-console && npm run build -- --configuration development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.8",
+    "@mastra/core": "latest",
+    "@mastra/duckdb": "latest",
+    "@mastra/libsql": "latest",
+    "@mastra/memory": "latest",
+    "@mastra/observability": "latest",
+    "pg": "^8.23.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/pg": "^8.23.1",
+    "mastra": "latest",
+    "typescript": "^6.0.3"
+  }
+}

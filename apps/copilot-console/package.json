@@ -1,0 +1,38 @@
+{
+  "name": "copilot-console",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "copilot-runtime": "node --env-file=../../.env --import tsx copilot-runtime.ts",
+    "dev": "sh -c 'npm run copilot-runtime & runtime_pid=$!; ng serve; kill $runtime_pid 2>/dev/null || true'"
+  },
+  "dependencies": {
+    "@ag-ui/mastra": "^1.1.1",
+    "@angular/cdk": "20.2.14",
+    "@angular/common": "20.3.27",
+    "@angular/compiler": "20.3.27",
+    "@angular/core": "20.3.27",
+    "@angular/forms": "20.3.27",
+    "@angular/platform-browser": "20.3.27",
+    "@angular/router": "20.3.27",
+    "@auth0/auth0-angular": "^2.12.0",
+    "@copilotkit/angular": "^0.3.1",
+    "@copilotkit/runtime": "^1.66.4",
+    "jose": "^6.2.12",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.8.1",
+    "zone.js": "~0.15.1"
+  },
+  "devDependencies": {
+    "@angular/build": "20.3.33",
+    "@angular/cli": "20.3.33",
+    "@angular/compiler-cli": "20.3.27",
+    "@types/node": "^22.13.0",
+    "tsx": "^4.20.3",
+    "typescript": "~5.9.2"
+  }
+}

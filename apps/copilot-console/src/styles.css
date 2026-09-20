@@ -1,0 +1,37 @@
+@import "@copilotkit/angular/styles.css";
+
+:root {
+  color-scheme: light;
+  --bg: #07527d;
+  --panel: #ffffff;
+  --panel-strong: #ffffff;
+  --border: #111111;
+  --text: #111111;
+  --muted: #475467;
+  --blue: #07527d;
+  --blue-strong: #004976;
+  --orange: #f28545;
+  --yellow: #ffd84d;
+  --purple: #bb8bea;
+  --accent: var(--orange);
+  --accent-soft: #fff3cf;
+  --shadow: 8px 8px 0 #111111;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--blue);
+  background-attachment: fixed;
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
