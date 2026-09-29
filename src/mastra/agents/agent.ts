@@ -17,7 +17,7 @@ export const agent = new Agent({
 When the user wants release notes, collect the sprint context, fetch completed sprint tickets, and produce a concise release summary.
 Use only the provided ticket data for summaries and release bullets.
 Ask concise follow-up questions only when required identifiers or destinations are missing.`,
-  model: 'openai/gpt-5.6-terra',
+  model: 'openai/gpt-4.1-nano',
   memory: new Memory({
     options: {
       generateTitle: true,

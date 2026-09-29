@@ -26,7 +26,7 @@ When summarizing, include the Asana project name and safe project GID suffix fro
 Keep answers concise, product-focused, and action-oriented. Highlight unknowns and gaps when Asana data is sparse or ambiguous.
 Never post to Slack, update Asana, publish release notes, or make changes; this agent is read-only.
 After using tools, always finish with a written answer. Never end your turn on a tool call.`,
-  model: 'openai/gpt-5.6-terra',
+  model: 'openai/gpt-4.1-nano',
   tools: {
     get_asana_project_status: getAsanaProjectStatusTool,
     query_asana_project_tasks: queryAsanaProjectTasksTool,

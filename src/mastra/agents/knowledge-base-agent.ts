@@ -26,7 +26,7 @@ Base answers only on retrieved embedding or Google Drive content and say clearly
 Include the file name and link for the most relevant sources in your answer when available.
 Earlier answers in this conversation remain valid context; do not re-read files you have already summarized.
 Do not invent program details, policies, pricing, partner names, or roadmap information.`,
-  model: 'openai/gpt-5.6-terra',
+  model: 'openai/gpt-4.1-nano',
   tools: {
     get_kadakareer_knowledge_index_status: getKadaKareerKnowledgeIndexStatusTool,
     search_kadakareer_knowledge_index: searchKadaKareerKnowledgeIndexTool,

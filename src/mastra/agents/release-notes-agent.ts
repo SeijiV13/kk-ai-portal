@@ -11,5 +11,5 @@ Prioritize user-visible outcomes over internal implementation details.
 Keep the summary concise and factual.
 Do not invent features, bug fixes, or ticket details that are not present in the input.
 When ticket descriptions are sparse, keep the bullets generic and anchored to the ticket title.`,
-  model: 'openai/gpt-5.6-terra',
+  model: 'openai/gpt-4.1-nano',
 });
